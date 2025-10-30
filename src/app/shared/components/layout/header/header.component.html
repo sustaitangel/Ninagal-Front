@@ -1,0 +1,32 @@
+<header
+  class="w-full flex items-center justify-between px-4 py-3 bg-white header-container"
+>
+  <div class="flex items-center gap-4">
+    <a
+      class="ml-2 text-gray-600 hover:text-black focus:outline-none"
+      style="cursor: pointer"
+      (click)="toggleSidebar()"
+    >
+      <ng-icon name="bootstrapList" size="25px"></ng-icon>
+    </a>
+    <img src="img/NinagalHome.svg" alt="Logo" class="h-8 w-auto" />
+  </div>
+
+  <!-- Right: Icon Buttons -->
+  <div class="flex items-center gap-4">
+    <!-- Usuario -->
+    <button class="text-gray-600 hover:text-black focus:outline-none">
+      <i class="pi pi-user text-xl"></i>
+    </button>
+
+    <!-- Notificaciones -->
+    <button class="text-gray-600 hover:text-black focus:outline-none">
+      <i class="pi pi-bell text-xl"></i>
+    </button>
+
+    <!-- Calendario -->
+    <button class="text-gray-600 hover:text-black focus:outline-none">
+      <i class="pi pi-calendar text-xl"></i>
+    </button>
+  </div>
+</header>

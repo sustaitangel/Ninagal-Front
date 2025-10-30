@@ -1,0 +1,42 @@
+<!-- Grid principal: header fijo, contenido con scroll, footer fijo -->
+<div class="h-screen grid grid-rows-[auto_1fr_auto] overflow-hidden bg-gray-50">
+  <!-- Header -->
+  <header class="sticky top-0 z-[60] border-b bg-white h-16">
+    <app-header (toggleMenu)="toggleSidebar()"></app-header>
+  </header>
+
+  <!-- Cuerpo -->
+  <div
+    class="grid min-h-0"
+    [style.gridTemplateColumns]="isMobile() ? '1fr' : 'auto 1fr'"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="relative lg:static bg-white border-r min-h-0 overflow-y-auto overscroll-contain shrink-0 transition-[width] duration-200 ease-out"
+      [class.fixed]="isMobile()"
+      [class.inset-0]="isMobile()"
+      [class.z-50]="isMobile()"
+      [class.w-64]="!isMobile() && visible"
+      [class.w-0]="!isMobile() && !visible"
+      [class.overflow-hidden]="!isMobile()"
+      [class.hidden]="isMobile() && !sidebarOpen()"
+      [class.translate-x-0]="isMobile() && sidebarOpen()"
+      [class.-translate-x-full]="isMobile() && !sidebarOpen()"
+      [ngClass]="{ 'translate-x-0': visible, '-translate-x-full': !visible }"
+    >
+      <app-sidebar
+        (navigate)="closeSidebar()"
+        class="block h-full"
+      ></app-sidebar>
+    </aside>
+
+    <!-- Contenido con scroll independiente -->
+    <main class="min-h-0 overflow-y-auto col-start-1 lg:col-start-2">
+      <app-content></app-content>
+    </main>
+  </div>
+
+  <footer class="sticky bottom-0 z-[60] border-t bg-white h-12">
+    <app-footer></app-footer>
+  </footer>
+</div>

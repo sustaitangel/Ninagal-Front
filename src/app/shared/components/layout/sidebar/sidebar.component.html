@@ -1,0 +1,98 @@
+<div
+  class="fixed left-0 top-[2px] bottom-[2px] w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out"
+>
+  <nav class="flex flex-col px-2 gap-2 pt-4">
+    <!-- Categoría: Inicio -->
+    <div class="px-1 pt-2 text-xs text-gray-500 uppercase tracking-wider">
+      {{ "menu.menu" | transloco }}
+    </div>
+
+    <a
+      [routerLink]="['/']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <i class="pi pi-home"></i> {{ "menu.home" | transloco }}
+    </a>
+
+    <!-- Categoría: Mantenimiento -->
+    <div class="px-1 pt-2 text-xs text-gray-500 uppercase tracking-wider">
+      {{ "menu.maintenance" | transloco }}
+    </div>
+
+    <a
+      [routerLink]="['/equipment']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <ng-icon name="bootstrapMinecartLoaded" class="pr-3" />
+      {{ "menu.manageEquipment" | transloco }}
+    </a>
+
+    <div>
+      <div
+        class="flex items-center justify-between gap-4 cursor-pointer p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+        (click)="toggleSubmenu('equipment')"
+      >
+        <span class="flex items-center gap-2">
+          <ng-icon name="bootstrapMotherboard" />
+          {{ "menu.configServices" | transloco }}
+        </span>
+        <i
+          class="pi"
+          [ngClass]="{
+            'pi-chevron-down': !submenuOpen['equipment'],
+            'pi-chevron-up': submenuOpen['equipment']
+          }"
+        ></i>
+      </div>
+
+      <div *ngIf="submenuOpen['equipment']" [@slideToggle]>
+        <a
+          [routerLink]="['Maintenance/Config']"
+          class="block pl-6 mt-2 text-base text-gray-600 p-1 hover:text-gray-800 hover:bg-gray-200 rounded transition ga"
+        >
+          <ng-icon name="bootstrapTools" />
+          {{ "menu.mainteinanceConfig" | transloco }}
+        </a>
+      </div>
+    </div>
+
+    <!-- Categoría: Development -->
+    <div class="px-1 pt-2 text-xs text-gray-500 uppercase tracking-wider">
+      {{ "menu.development" | transloco }}
+    </div>
+    <a
+      [routerLink]="['/Periods']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <ng-icon name="bootstrapCalendar2Plus" />
+      {{ "monthlyPlan.title" | transloco }}
+    </a>
+    <a
+      [routerLink]="['Development/Projects']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <ng-icon name="bootstrapGearWideConnected" />
+      {{ "menu.projects" | transloco }}
+    </a>
+    <a
+      [routerLink]="['Development/Work']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <ng-icon name="bootstrapConeStriped" />
+      {{ "work.title" | transloco }}
+    </a>
+    <a
+      [routerLink]="['Development/WorkType']"
+      style="cursor: pointer"
+      class="p-2 hover:text-gray-800 hover:bg-gray-200 rounded transition"
+    >
+      <ng-icon name="bootstrapWrenchAdjustableCircle" />
+      {{ "work.workType" | transloco }}
+    </a>
+  </nav>
+</div>

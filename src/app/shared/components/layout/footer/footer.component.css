@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #183145;
+  text-align: center;
+  height: 35px;
+  z-index: 5000;
+}
+
+.text-light {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+  padding-top: 0.3rem;
+}
+
+.focuse {
+  z-index: 4900;
+}
